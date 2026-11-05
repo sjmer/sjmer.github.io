@@ -1,0 +1,44 @@
+---
+layout: default
+title: AJM · 个人主页
+description: AJM 的个人主页 —— 在读大二学生，生活在宁波。
+---
+{%- assign profile = site.data.profile -%}
+
+<header class="hero">
+  <div class="avatar reveal" style="--d:0s">
+    <span class="avatar__glow" aria-hidden="true"></span>
+    <img class="avatar__img"
+         src="{{ '/assets/img/avatar.png' | relative_url }}"
+         alt="{{ profile.name }} 的头像"
+         width="320" height="320" decoding="async">
+    <span class="avatar__ring" aria-hidden="true"></span>
+  </div>
+
+  <p class="status reveal" style="--d:.06s">
+    <span class="status__dot" aria-hidden="true"></span>
+    <span>{{ profile.status }}</span>
+    <span class="status__sep" aria-hidden="true">/</span>
+    <span>{{ profile.location }}</span>
+  </p>
+
+  <h1 class="hero__title reveal" style="--d:.12s">{{ profile.name }}</h1>
+  <p class="hero__sub reveal" style="--d:.18s">{{ profile.tagline }}</p>
+  <p class="hero__intro reveal" style="--d:.24s">{{ profile.intro }}</p>
+</header>
+
+<section class="section reveal" style="--d:.32s" aria-labelledby="links-title">
+  <h2 class="section__title" id="links-title">找到我</h2>
+  <div class="links">
+    {%- for link in profile.links %}
+    <a class="link-card" href="{{ link.url }}"{% unless link.url contains 'mailto:' %} target="_blank" rel="noopener noreferrer"{% endunless %}>
+      <span class="link-card__badge" aria-hidden="true">{% include icon.html name=link.icon %}</span>
+      <span class="link-card__body">
+        <span class="link-card__label">{{ link.label }}</span>
+        <span class="link-card__handle">{{ link.handle }}</span>
+      </span>
+      <svg class="link-card__arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+    {%- endfor %}
+  </div>
+</section>

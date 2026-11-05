@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────────────────────────
+#  个人资料：整个网站所有文字都在这个文件里改，改完提交即可。
+# ─────────────────────────────────────────────────────────────
+
+# 显示的名字
+name: AJM
+
+# 一句话身份 + 状态标签
+tagline: 一个在读大二的普通学生
+status: 在读大二
+location: 中国 · 宁波
+
+# 首页那段自我介绍，一两句就够
+intro: 你好，我是 AJM。学业之外我喜欢折腾电脑、写点小东西，也喜欢在网上看别人做的作品。这个页面是我在互联网上的一小块落脚点。
+
+# 「找到我」里的卡片。
+# icon 可选：github / bilibili / mail（图标定义在 _includes/icon.html）
+links:
+  - label: GitHub
+    handle: sjmer
+    url: https://github.com/sjmer
+    icon: github
+  - label: Bilibili
+    handle: UID 455892804
+    url: https://space.bilibili.com/455892804
+    icon: bilibili
+  - label: 邮箱
+    handle: sjmer365@gmail.com
+    url: mailto:sjmer365@gmail.com
+    icon: mail

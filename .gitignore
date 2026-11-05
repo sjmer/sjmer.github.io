@@ -1,0 +1,17 @@
+# Jekyll 构建产物
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# 依赖
+vendor/
+node_modules/
+
+# 平台相关的锁文件（在不同系统上会冲突，不要提交）
+Gemfile.lock
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
