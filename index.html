@@ -11,15 +11,15 @@
   <meta property="og:url" content="https://sjmer.top/">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-  <!-- 开场动画开关：在首屏绘制前执行，只在首次访问且未开启"减少动态效果"时播放 -->
+  <!-- 开场动画开关：仅在当前标签会话首次加载且未开启"减少动态效果"时播放 -->
   <script>
     (function () {
       try {
-        var KEY = 'sjmer-intro';
+        var KEY = 'sjmer-intro-session';
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!localStorage.getItem(KEY) && !reduce) {
+        if (!sessionStorage.getItem(KEY) && !reduce) {
           document.documentElement.classList.add('intro');
-          localStorage.setItem(KEY, '1');
+          sessionStorage.setItem(KEY, '1');
         }
       } catch (e) { /* 隐私模式等情况下直接跳过动画 */ }
     })();
