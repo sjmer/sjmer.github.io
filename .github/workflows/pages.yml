@@ -1,4 +1,4 @@
-name: 构建并部署到 GitHub Pages
+name: 部署到 GitHub Pages
 
 on:
   push:
@@ -10,45 +10,35 @@ permissions:
   pages: write
   id-token: write
 
-# 同一时间只跑一个部署，新的推送排在后面而不是打断进行中的发布
+# 同一时间只跑一个部署，新的推送排队等待，不打断进行中的发布
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
 
-      - name: 安装 Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-          bundler-cache: true
-
       - name: 配置 Pages
-        id: pages
         uses: actions/configure-pages@v5
 
-      - name: 构建站点
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
+      # 纯静态站点，无需构建；只上传网站需要的文件
+      - name: 整理站点文件
+        run: |
+          mkdir _site
+          cp -r index.html 404.html CNAME assets _site/
 
       - name: 上传产物
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: 部署
         id: deployment
         uses: actions/deploy-pages@v4

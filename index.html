@@ -1,44 +1,197 @@
----
-layout: default
-title: AJM · 个人主页
-description: AJM 的个人主页 —— 在读大二学生，生活在宁波。
----
-{%- assign profile = site.data.profile -%}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sjm · 个人小角落</title>
+  <meta name="description" content="Sjm 的个人小角落：写点喜欢的，展示正在做的东西。">
+  <meta name="theme-color" content="#101113">
+  <meta property="og:title" content="Sjm · 个人小角落">
+  <meta property="og:description" content="写点喜欢的，展示正在做的东西。">
+  <meta property="og:url" content="https://sjmer.top/">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-<header class="hero">
-  <div class="avatar reveal" style="--d:0s">
-    <span class="avatar__glow" aria-hidden="true"></span>
-    <img class="avatar__img"
-         src="{{ '/assets/img/avatar.png' | relative_url }}"
-         alt="{{ profile.name }} 的头像"
-         width="320" height="320" decoding="async">
-    <span class="avatar__ring" aria-hidden="true"></span>
+  <!-- 开场动画开关：在首屏绘制前执行，只在首次访问且未开启"减少动态效果"时播放 -->
+  <script>
+    (function () {
+      try {
+        var KEY = 'sjmer-intro';
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!localStorage.getItem(KEY) && !reduce) {
+          document.documentElement.classList.add('intro');
+          localStorage.setItem(KEY, '1');
+        }
+      } catch (e) { /* 隐私模式等情况下直接跳过动画 */ }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- 开场遮罩（仅在 .intro 时显示） -->
+  <div class="curtain" aria-hidden="true"></div>
+
+  <div class="wrap">
+
+    <!-- ========== 顶栏（随内容流，不固定） ========== -->
+    <nav class="topbar" aria-label="站内导航">
+      <a class="topbar__brand" href="/">sjmer<span>.top</span></a>
+      <ul class="topbar__links">
+        <li><a href="#interests">喜欢的事</a></li>
+        <li><a href="#now">正在做</a></li>
+        <li><a href="#contact">找到我</a></li>
+      </ul>
+    </nav>
+
+    <!-- ========== 头部：头像 + 昵称 + 自我介绍 ========== -->
+    <header class="hero" id="about">
+      <div class="hero__id">
+        <img class="hero__avatar" src="assets/img/avatar.jpg" alt="Sjm 的头像" width="112" height="112">
+        <div>
+          <h1 class="hero__name" aria-label="Sjm"><span aria-hidden="true"><span class="ch" style="--i:0">S</span><span class="ch" style="--i:1">j</span><span class="ch" style="--i:2">m</span></span></h1>
+          <p class="hero__tagline">人类</p>
+        </div>
+      </div>
+
+      <div class="prose hero__intro">
+        <p>你好，很高兴认识你。我是 sjm，一个普通大学生，欢迎与我交流 anything。</p>
+      </div>
+
+      <dl class="hero__meta">
+        <div>
+          <dt>身份</dt>
+          <dd>双非 · 大二</dd>
+        </div>
+        <div>
+          <dt>坐标</dt>
+          <dd>中国</dd>
+        </div>
+      </dl>
+    </header>
+
+    <main>
+
+      <!-- ========== 兴趣 ========== -->
+      <section class="section" id="interests" aria-labelledby="interests-title">
+        <h2 class="section__title" id="interests-title">喜欢的事</h2>
+
+        <ul class="interests">
+          <li class="interest">
+            <span class="interest__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg>
+            </span>
+            <h3 class="interest__name">唱</h3>
+            <p class="interest__desc">随心，随缘。</p>
+          </li>
+          <li class="interest">
+            <span class="interest__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M5 9.5 9 7.5l3.5 1.5 4-3.5"/><path d="M12.5 9 11 14.5"/><path d="M11 14.5 7.5 17l1 4.5"/><path d="M11 14.5l4.5 2.5L18 20"/></svg>
+            </span>
+            <h3 class="interest__name">跳</h3>
+            <p class="interest__desc">你也想起舞吗？</p>
+          </li>
+          <li class="interest">
+            <span class="interest__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2v20"/><path d="M2 12h20"/><path d="M5.6 4.3C7.9 6.3 9 9.1 9 12s-1.1 5.7-3.4 7.7"/><path d="M18.4 4.3C16.1 6.3 15 9.1 15 12s1.1 5.7 3.4 7.7"/></svg>
+            </span>
+            <h3 class="interest__name">篮球</h3>
+            <p class="interest__desc">练习两年半。</p>
+          </li>
+          <li class="interest">
+            <span class="interest__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </span>
+            <h3 class="interest__name">读书</h3>
+            <p class="interest__desc">落魄谷中寒风吹……</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== 正在做 ========== -->
+      <section class="section" id="now" aria-labelledby="now-title">
+        <h2 class="section__title" id="now-title">正在做</h2>
+
+        <article class="project">
+          <div class="project__body">
+            <div class="project__tags">
+              <span class="tag tag--live"><span class="dot" aria-hidden="true"></span>进行中</span>
+              <span class="tag">vibecoding</span>
+            </div>
+
+            <h3 class="project__title">Blackjack · 网页版 21 点</h3>
+
+            <p class="project__desc">一个用 vibecoding 方式做出来的 21 点小游戏，直接在浏览器里玩。从发牌、要牌到庄家逻辑，边做边学，做到哪算哪。</p>
+
+            <ul class="project__stack" aria-label="技术栈">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+
+            <div class="project__actions">
+              <a class="btn btn--primary" href="https://blackjack-card-game.app.workbuddy.host/?sharecode=UXXPQ45BUW" target="_blank" rel="noopener">试玩 <span aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="https://github.com/sjmer/BlackJack" target="_blank" rel="noopener">GitHub 仓库</a>
+            </div>
+          </div>
+
+          <div class="project__visual" aria-hidden="true">
+            <span class="project__21">21</span>
+            <div class="pcard pcard--a">
+              <span class="pcard__corner">A<br>♠</span>
+              <span class="pcard__center">♠</span>
+              <span class="pcard__corner pcard__corner--br">A<br>♠</span>
+            </div>
+            <div class="pcard pcard--k">
+              <span class="pcard__corner">K<br>♥</span>
+              <span class="pcard__center">K</span>
+              <span class="pcard__corner pcard__corner--br">K<br>♥</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ========== 找到我 ========== -->
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <h2 class="section__title" id="contact-title">找到我</h2>
+
+        <ul class="social">
+          <li>
+            <a class="social__link s-bili" href="https://space.bilibili.com/455892804" target="_blank" rel="noopener" aria-label="哔哩哔哩">
+              <svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social__link s-x" href="https://x.com/AJM0o2" target="_blank" rel="noopener" aria-label="X">
+              <svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social__link s-tg" href="https://t.me/A" target="_blank" rel="noopener" aria-label="Telegram">
+              <svg class="social__icon" viewBox="4.35 5.5 14 14" aria-hidden="true"><path d="M16.906 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social__link s-gh" href="https://github.com/sjmer" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="social__link s-mail" href="mailto:sjmisme365@gmail.com" aria-label="发邮件">
+              <svg class="social__icon social__icon--stroke" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Sjm</p>
+      <a href="#top" class="footer__top">回到顶部 <span aria-hidden="true">↑</span></a>
+    </footer>
+
   </div>
 
-  <p class="status reveal" style="--d:.06s">
-    <span class="status__dot" aria-hidden="true"></span>
-    <span>{{ profile.status }}</span>
-    <span class="status__sep" aria-hidden="true">/</span>
-    <span>{{ profile.location }}</span>
-  </p>
-
-  <h1 class="hero__title reveal" style="--d:.12s">{{ profile.name }}</h1>
-  <p class="hero__sub reveal" style="--d:.18s">{{ profile.tagline }}</p>
-  <p class="hero__intro reveal" style="--d:.24s">{{ profile.intro }}</p>
-</header>
-
-<section class="section reveal" style="--d:.32s" aria-labelledby="links-title">
-  <h2 class="section__title" id="links-title">找到我</h2>
-  <div class="links">
-    {%- for link in profile.links %}
-    <a class="link-card" href="{{ link.url }}"{% unless link.url contains 'mailto:' %} target="_blank" rel="noopener noreferrer"{% endunless %}>
-      <span class="link-card__badge" aria-hidden="true">{% include icon.html name=link.icon %}</span>
-      <span class="link-card__body">
-        <span class="link-card__label">{{ link.label }}</span>
-        <span class="link-card__handle">{{ link.handle }}</span>
-      </span>
-      <svg class="link-card__arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-    </a>
-    {%- endfor %}
-  </div>
-</section>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

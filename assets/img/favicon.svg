@@ -1,19 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="AJM">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#141b34"/>
-      <stop offset="0.55" stop-color="#241a48"/>
-      <stop offset="1" stop-color="#0a0f1c"/>
-    </linearGradient>
-    <linearGradient id="star" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#b7c3ff"/>
-    </linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
-  <circle cx="7.5" cy="8" r="0.9" fill="#ffffff" opacity="0.75"/>
-  <circle cx="25" cy="24" r="0.7" fill="#ffffff" opacity="0.6"/>
-  <circle cx="24" cy="8.5" r="0.55" fill="#cdd6ff" opacity="0.5"/>
-  <circle cx="8.5" cy="24.5" r="0.55" fill="#cdd6ff" opacity="0.45"/>
-  <path d="M16 4.5c1 7.6 3.9 10.5 11.5 11.5-7.6 1-10.5 3.9-11.5 11.5-1-7.6-3.9-10.5-11.5-11.5C12.1 15 15 12.1 16 4.5Z" fill="url(#star)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#17181c"/>
+  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
+        font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="40" font-weight="800" fill="#FF7A3D">S</text>
 </svg>

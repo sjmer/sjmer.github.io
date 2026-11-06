@@ -1,16 +1,25 @@
----
-layout: default
-title: 页面走丢了 · AJM
-description: 你访问的页面不存在。
-permalink: /404.html
-noindex: true
----
-
-<div class="notfound">
-  <p class="notfound__code">404</p>
-  <h1 class="notfound__title">这里空空的，什么也没有</h1>
-  <p class="notfound__text">你要找的页面可能被移动或者删除了。宇宙很大，迷路很正常。</p>
-  <div class="actions">
-    <a class="btn btn--primary" href="{{ '/' | relative_url }}">回到首页</a>
-  </div>
-</div>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 · Simer</title>
+  <meta name="theme-color" content="#101113">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .nf { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    .nf__code { font-size: clamp(5rem, 18vw, 12rem); font-weight: 800; line-height: .9; letter-spacing: -.05em; }
+    .nf__code span { color: var(--accent); }
+    .nf p { margin-top: 20px; color: var(--text-dim); font-size: 1.1rem; }
+    .nf .btn { margin-top: 32px; align-self: flex-start; }
+  </style>
+</head>
+<body>
+  <main class="wrap nf">
+    <h1 class="nf__code">4<span>0</span>4</h1>
+    <p>这个角落里没有你要找的东西，可能是我还没写，也可能是链接走丢了。</p>
+    <a class="btn btn--primary" href="/">回首页 <span aria-hidden="true">→</span></a>
+  </main>
+</body>
+</html>
